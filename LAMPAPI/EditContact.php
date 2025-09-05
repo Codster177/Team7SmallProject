@@ -4,7 +4,7 @@
     $contactId = $inData["contactId"];
     $firstName = $inData["firstname"];
     $lastName = $inData["lastname"];
-    $phone = $inData["phonenumber"];
+    $phone = $inData["phone"];
     $email = $inData["email"];
 
     require_once __DIR__ . '/config.php';
@@ -46,7 +46,7 @@
     }
 
     function returnWithInfo($id, $createdAt, $firstName, $lastName, $phone, $email, $userId) {
-		$retValue = '{"contactId":' . $id . ',"createdAt":"' . $createdAt . '","firstname":"' . $firstName . '","lastname":"' . $lastName . '","phonenumber":"' . $phone . '","email":"' . $email . '","userId":' . $userId . ',"error":""}';
+		$retValue = '{"contactId":' . $id . ',"createdAt":"' . $createdAt . '","firstname":"' . $firstName . '","lastname":"' . $lastName . '","phone":"' . $phone . '","email":"' . $email . '","userId":' . $userId . ',"error":""}';
 		sendResultInfoAsJson($retValue);
 	}
     
