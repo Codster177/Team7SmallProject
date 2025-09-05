@@ -46,7 +46,7 @@
     }
 
     function returnWithInfo($id, $createdAt, $firstName, $lastName, $phone, $email, $userId) {
-		$retValue = '{"contactId":' . $id . ',"createdAt":"' . $createdAt . '","firstName":"' . $firstName . '","lastName":"' . $lastName . '","phone":"' . $phone . '","email":"' . $email . '","userId":' . $userId . ',"error":""}';
+		$retValue = '{"contactId":' . $id . ',"createdAt":"' . $createdAt . '","firstname":"' . $firstName . '","lastname":"' . $lastName . '","phonenumber":"' . $phone . '","email":"' . $email . '","userId":' . $userId . ',"error":""}';
 		sendResultInfoAsJson($retValue);
 	}
     
