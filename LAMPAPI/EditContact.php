@@ -14,7 +14,7 @@
     }
 
     else {
-        $get_statement = $conn->prepare("SELECT id,createdAt FROM Contacts WHERE UserID=? AND ID=?");
+        $get_statement = $conn->prepare("SELECT id,createdAt,firstName,lastName,phone,email,userId FROM Contacts WHERE UserID=? AND ID=?");
 		$get_statement->bind_param("ss", $userId, $contactId);
         $get_statement->execute();
         $result = $get_statement->get_result();
@@ -23,7 +23,7 @@
 		    $edit_statement->bind_param("ssssss", $firstName, $lastName, $phone, $email, $userId, $contactId);
             $edit_statement->execute();
             $edit_statement->close();
-			returnWithInfo($row['id'], $row['createdAt'], $firstName, $lastName, $phone, $email, $userId);
+			returnWithInfo($row['id'], $row['createdAt'], $row['firstName'], $row['lastName'], $row['phone'], $row['email'], $row['userId']);
 		} else {
 			returnWithError("Contact not found");
 		}
