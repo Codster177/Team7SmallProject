@@ -1,0 +1,169 @@
+:root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --primary: #2563eb;
+    --primary-ink: #ffffff;
+    --ghost: #eef2ff;
+    --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+    --radius: 14px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Arial;
+    color: var(--text);
+    background: var(--bg);
+}
+
+/* Top bar */
+.bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Buttons */
+.btn {
+    appearance: none;
+    border: 0;
+    border-radius: 10px;
+    background: var(--primary);
+    color: var(--primary-ink);
+    padding: 10px 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+    transition: transform .04s ease, opacity .2s;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text);
+    box-shadow: none;
+    border: 1px solid var(--line);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.button-group-right {
+    display: flex;
+    gap: 8px;
+    margin-right: auto;
+}
+
+/* Layout */
+.card {
+    max-width: 1040px;
+    margin: 48px auto;
+    padding: 24px;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.section {
+    margin: 18px 0;
+}
+
+.section-title {
+    margin: 0 0 10px;
+    font-size: 32px;
+}
+
+/* Inputs */
+.row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.stack-mobile {
+    flex-wrap: wrap;
+}
+
+.grow {
+    flex: 1;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 180px;
+    padding-bottom: 2%;
+}
+
+.input-label {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    outline: none;
+}
+
+input:focus {
+    border-color: #c7d2fe;
+    box-shadow: 0 0 0 3px #eef2ff;
+}
+
+.link {
+    display: flex;
+    padding: 10px 14px;
+}
+
+.link-label {
+    display: flex;
+    padding: 10px 14px;
+}
