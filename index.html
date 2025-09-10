@@ -3,65 +3,86 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <!-- Getting CSS stles and JS scripts -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
-
-    <script defer src="js/bootstrap.js"></script>
-
-    <title>Contact Manager</title>
+    <!-- Metadata and external styles -->
+    <meta charset="utf-8" />
+    <title>Sign Up - Contact Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/login.css" />
 </head>
 
 <body>
-    <!-- Dark mode detection script -->
-    <script>
-        function updateTheme() {
-            const colorMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-            document.querySelector("html").setAttribute("data-bs-theme", colorMode);
-        }
+    <header class="bar">
+        <div class="brand">
+            <!-- Logo and title -->
+            <div class="logo">📇</div>
+            <div class="titles">
+                <strong>Contact Manager</strong>
+            </div>
+        </div>
+    </header>
 
-        updateTheme()
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
-    </script>
-
-    <!-- Navbar -->
-    <div class="container mt-5">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <!-- Navbar title -->
-                <a class="navbar-brand" href="#">Contact Manager</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Navbar lefthand side -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                    </ul>
-
-                    <!-- Navbar righthand side -->
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Sign Up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Log In</a>
-                        </li>
-
-                    </ul>
+    <main class="card">
+        <!-- Tools row for search functionality -->
+        <div class="section">
+            <h2 class="section-title">Sign Up</h2>
+            <div class="row stack-mobile">
+                <div class="input-group grow">
+                    <span class="input-label">First Name</span>
+                    <input id="signup-fn" placeholder="First Name">
+                </div>
+                <div class="input-group grow">
+                    <span class="input-label">Last Name</span>
+                    <input id="signup-ln" placeholder="Last Name">
                 </div>
             </div>
-        </nav>
-    </div>
+            <div class="input-group grow">
+                <span class="input-label">Email</span>
+                <input id="signup-email" placeholder="Email">
+            </div>
+            <div class="input-group grow">
+                <span class="input-label">Password</span>
+                <input id="signup-pass" type="password" placeholder="Password">
+            </div>
+            <div class="input-group grow">
+                <span class="input-label">Confirm Password</span>
+                <input id="signup-passcon" type="password" placeholder="Confirm Password">
+            </div>
+            <div class="row stack-mobile">
+                <div class="button-group-right">
+                    <button id="signup-btn" class="btn">Sign Up</button>
+                </div>
+                <div class="row stack-mobile">
+                    <div class="link-label">Already have an account?</div>
+                    <a class="link" href="login.html">Log In</a>
+                </div>
+            </div>
+        </div>
+        </div>
 </body>
 
 </html>
+
+<!-- Phone Input Code -->
+<!-- <div class="input-group grow">
+                <span class="input-label">Phone Number</span>
+                <input id="signup-phonenum" placeholder="Phone Number">
+            </div>
+            <script>
+                const phoneInput = document.getElementById("signup-phonenum");
+
+                function phoneInputFunc() {
+                    let digits = phoneInput.value.replace(/\D/g, "");
+                    if (digits.length > 10) digits = digits.slice(0, 10);
+
+                    let formatted = digits;
+                    if (digits.length > 6) {
+                        formatted = `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`;
+                    } else if (digits.length > 3) {
+                        formatted = `${digits.slice(0, 3)}-${digits.slice(3)}`;
+                    }
+
+                    phoneInput.value = formatted;
+
+                }
+                phoneInput.addEventListener("input", phoneInputFunc);
+            </script> -->
