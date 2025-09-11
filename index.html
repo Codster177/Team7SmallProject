@@ -58,6 +58,31 @@
             </div>
         </div>
         </div>
+    <script>
+        const signupButton = document.getElementById("signup-btn");
+
+        function signup_precheck()
+        {
+            let firstNameIn = document.getElementById("signup-fn");
+            let lastNameIn = document.getElementById("signup-ln");
+            let emailIn = document.getElementById("signup-email");
+            let passIn = document.getElementById("signup-pass");
+            let passConIn = document.getElementById("signup-passcon");
+            
+            if (passIn.value != passConIn.value)
+            {
+                return;
+            }
+
+            if ((firstNameIn.value.length > 50) || (lastNameIn.value.length > 50) || (emailIn.value.length > 50) || (passIn.value.length > 50))
+            {
+                return;
+            }
+
+        }
+
+        signupButton.addEventListener("click", signup_precheck);
+    </script>
 </body>
 
 </html>
