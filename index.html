@@ -8,6 +8,8 @@
     <title>Sign Up - Contact Manager</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/login.css" />
+    <script type="text/javascript" src="js/signup.js"></script>
+
 </head>
 
 <body>
@@ -49,7 +51,7 @@
             </div>
             <div class="row stack-mobile">
                 <div class="button-group-right">
-                    <button id="signup-btn" class="btn">Sign Up</button>
+                    <button id="signup-btn" onclick="signup_precheck();" class="btn">Sign Up</button>
                 </div>
                 <div class="row stack-mobile">
                     <div class="link-label">Already have an account?</div>
@@ -59,8 +61,6 @@
         </div>
         </div>
     <script>
-        const signupButton = document.getElementById("signup-btn");
-
         function signup_precheck()
         {
             let firstNameIn = document.getElementById("signup-fn");
@@ -71,17 +71,32 @@
             
             if (passIn.value != passConIn.value)
             {
+                console.log("Passwords Don't Match");
                 return;
             }
 
             if ((firstNameIn.value.length > 50) || (lastNameIn.value.length > 50) || (emailIn.value.length > 50) || (passIn.value.length > 50))
             {
+                console.log("First name is too long.");
                 return;
             }
-
+            if (lastNameIn.value.length > 50)
+            {
+                console.log("Last name is too long.");
+                return;
+            }
+            if (emailIn.value.length > 50)
+            {
+                console.log("Email is too long.");
+                return;
+            }
+            if (passIn.value.length > 50)
+            {
+                console.log("Password is too long.");
+                return;
+            }
+            process_signup();
         }
-
-        signupButton.addEventListener("click", signup_precheck);
     </script>
 </body>
 

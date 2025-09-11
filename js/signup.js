@@ -7,5 +7,6 @@ function process_signup()
     let email = document.getElementById("signup-email");
     
     let pass = document.getElementById("signup-pass");
-    // WIP
+    
+    console.log(firstName.value);
 }
