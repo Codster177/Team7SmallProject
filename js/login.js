@@ -26,7 +26,7 @@ function process_login() {
                 let jsonObject = JSON.parse(xhr.responseText);
                 userId = jsonObject.id;
 
-                console.log(userID);
+                console.log(userId);
 
                 if (userId < 1) {
                     errorDatabase.innerHTML = "User/Password combination incorrect.";
