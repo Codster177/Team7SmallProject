@@ -39,7 +39,7 @@ function process_signup() {
                 let jsonObject = JSON.parse(xhr.responseText);
                 userId = jsonObject.id;
 
-                saveCookie(firstName, lastName, userId);
+                Global.saveCookie(firstName, lastName, userId);
             }
         };
 
