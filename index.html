@@ -40,8 +40,8 @@
                 </div>
             </div>
             <div class="input-group grow">
-                <span class="input-label">Email</span>
-                <input id="signup-email" placeholder="Email">
+                <span class="input-label">Username</span>
+                <input id="signup-user" placeholder="Username">
             </div>
             <div class="input-group grow">
                 <span class="input-label">Password</span>
@@ -58,7 +58,7 @@
             </div>
             <div class="row stack-mobile">
                 <div class="button-group-right">
-                    <button id="signup-btn" onclick="signup_precheck();" class="btn">Sign Up</button>
+                    <button id="signup-btn" onclick="signup_precheck()" class="btn">Sign Up</button>
                 </div>
                 <div class="row stack-mobile">
                     <div class="link-label">Already have an account?</div>
@@ -70,13 +70,13 @@
             function signup_precheck() {
                 let firstNameIn = document.getElementById("signup-fn").value;
                 let lastNameIn = document.getElementById("signup-ln").value;
-                let emailIn = document.getElementById("signup-email").value;
+                let userIn = document.getElementById("signup-user").value;
                 let passIn = document.getElementById("signup-pass").value;
                 let passConIn = document.getElementById("signup-passcon").value;
 
                 let errorLabel = document.getElementById("signup-error");
 
-                if (firstNameIn == "" || lastNameIn == "" || emailIn == "" || passIn == "" || passConIn == "") {
+                if (firstNameIn == "" || lastNameIn == "" || userIn == "" || passIn == "" || passConIn == "") {
                     errorLabel.innerHTML = ("Please fill in all fields.");
                     return;
                 }
@@ -94,8 +94,8 @@
                     errorLabel.innerHTML = ("Last name is too long.");
                     return;
                 }
-                if (emailIn.length > 50) {
-                    errorLabel.innerHTML = ("Email is too long.");
+                if (userIn.length > 50) {
+                    errorLabel.innerHTML = ("Username is too long.");
                     return;
                 }
                 if (passIn.length > 50) {

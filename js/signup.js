@@ -1,12 +1,10 @@
-
-
 function process_signup() {
 
     let userId = 0;
 
     let firstName = document.getElementById("signup-fn").value;
     let lastName = document.getElementById("signup-ln").value;
-    let email = document.getElementById("signup-email").value;
+    let user = document.getElementById("signup-user").value;
     let pass = document.getElementById("signup-pass").value;
 
 
@@ -15,7 +13,7 @@ function process_signup() {
 
     let errorDatabase = document.getElementById("signup-error");
 
-    let tmp = { firstname: firstName, lastname: lastName, login: email, password: hash }
+    let tmp = { firstname: firstName, lastname: lastName, login: user, password: hash }
 
     let jsonPayload = JSON.stringify(tmp);
 
@@ -44,6 +42,8 @@ function process_signup() {
         };
 
         xhr.send(jsonPayload);
+        window.location.href = "main-page.html";
+
     } catch (err) {
         errorDatabase.innerHTML = err.message;
     }
