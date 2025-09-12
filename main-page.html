@@ -7,6 +7,15 @@
   <title>My Contacts - Contact Manager</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/main_page.css" />
+  <script type="text/javascript" src="js/mainpage.js"></script>
+  <script type="text/javascript" src="js/global.js"></script>
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+      onMainpageLoad();
+    })
+  </script>
+
 </head>
 
 <body>
@@ -27,6 +36,12 @@
   <main class="card">
     <!-- Tools row for search functionality -->
     <div class="section">
+      <!-- Welcome Text -->
+      <div>
+        <div class="welcome-group">
+          <span class="welcome-label" id="welcomeLabel"></span>
+        </div>
+      </div>
       <div class="row stack-mobile">
         <!-- Search input -->
         <div class="input-group grow">
