@@ -10,7 +10,7 @@ function process_login() {
 
     let errorDatabase = document.getElementById("login-error");
 
-    let tmp = { login: login, password: pass };
+    let tmp = { login: login, password: hash };
 
     let jsonPayload = JSON.stringify(tmp);
 
@@ -25,6 +25,8 @@ function process_login() {
             if (this.readyState == 4 && this.status == 200) {
                 let jsonObject = JSON.parse(xhr.responseText);
                 userId = jsonObject.id;
+
+                console.log(userID);
 
                 if (userId < 1) {
                     errorDatabase.innerHTML = "User/Password combination incorrect.";
