@@ -5,6 +5,6 @@ function onMainpageLoad() {
     let userId = userInfo.userid;
 
     let welcomeLabel = document.getElementById("welcomeLabel");
-    welcomeLabel.innerHTML = "Welcome " + firstName + " " + lastName + ", ID: " + userId;
+    welcomeLabel.innerHTML = "Welcome " + firstName + " " + lastName;
 
 }
