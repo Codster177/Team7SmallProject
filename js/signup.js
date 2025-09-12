@@ -13,11 +13,37 @@ function process_signup() {
     var hash = md5(pass);
     console.log(hash);
 
+    let errorDatabase = document.getElementById("signup-error");
+
     let tmp = { firstname: firstName, lastname: lastName, login: email, password: hash }
 
-    let url = Global.URL + '/Register' + extension;
+    let url = Global.URL + '/Register' + Global.extension;
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (this.readyState != 4) {
+                return;
+            }
+
+            if (this.status == 409) {
+                errorDatabase.innerHTML = "User already exists";
+                return;
+            }
+
+            if (this.status == 200) {
+                let jsonObject = JSON.parse(xhr.responseText);
+                userId = jsonObject.id;
+
+                saveCookie();
+            }
+        };
+
+        xhr.send(jsonPayload);
+    } catch (err) {
+        errorDatabase.innerHTML = err.message;
+    }
 
 }
