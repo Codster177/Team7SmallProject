@@ -17,7 +17,9 @@ function process_signup() {
 
     let tmp = { firstname: firstName, lastname: lastName, login: email, password: hash }
 
-    let url = Global.URL + '/Register' + Global.extension;
+    let jsonPayload = JSON.stringify(tmp);
+
+    let url = Global.URL + '/Register' + Global.apiExtension;
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -37,7 +39,7 @@ function process_signup() {
                 let jsonObject = JSON.parse(xhr.responseText);
                 userId = jsonObject.id;
 
-                saveCookie();
+                saveCookie(firstName, lastName, userId);
             }
         };
 
