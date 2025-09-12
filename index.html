@@ -49,6 +49,11 @@
                 <span class="input-label">Confirm Password</span>
                 <input id="signup-passcon" type="password" placeholder="Confirm Password">
             </div>
+            <div>
+                <div class="error-group">
+                    <span class="error-label" id="signup-error"></span>
+                </div>
+            </div>
             <div class="row stack-mobile">
                 <div class="button-group-right">
                     <button id="signup-btn" onclick="signup_precheck();" class="btn">Sign Up</button>
@@ -59,45 +64,46 @@
                 </div>
             </div>
         </div>
-        </div>
-    <script>
-        function signup_precheck()
-        {
-            let firstNameIn = document.getElementById("signup-fn");
-            let lastNameIn = document.getElementById("signup-ln");
-            let emailIn = document.getElementById("signup-email");
-            let passIn = document.getElementById("signup-pass");
-            let passConIn = document.getElementById("signup-passcon");
-            
-            if (passIn.value != passConIn.value)
-            {
-                console.log("Passwords Don't Match");
-                return;
-            }
+        <script>
+            function signup_precheck() {
+                let firstNameIn = document.getElementById("signup-fn").value;
+                let lastNameIn = document.getElementById("signup-ln").value;
+                let emailIn = document.getElementById("signup-email").value;
+                let passIn = document.getElementById("signup-pass").value;
+                let passConIn = document.getElementById("signup-passcon").value;
 
-            if ((firstNameIn.value.length > 50) || (lastNameIn.value.length > 50) || (emailIn.value.length > 50) || (passIn.value.length > 50))
-            {
-                console.log("First name is too long.");
-                return;
+                let errorLabel = document.getElementById("signup-error");
+
+                if (firstNameIn == "" || lastNameIn == "" || emailIn == "" || passIn == "" || passConIn == "") {
+                    errorLabel.innerHTML = ("Please fill in all fields.");
+                    return;
+                }
+
+                if (passIn != passConIn) {
+                    errorLabel.innerHTML = ("Passwords Don't Match.");
+                    return;
+                }
+
+                if (firstNameIn.length > 50) {
+                    errorLabel.innerHTML = ("First name is too long.");
+                    return;
+                }
+                if (lastNameIn.length > 50) {
+                    errorLabel.innerHTML = ("Last name is too long.");
+                    return;
+                }
+                if (emailIn.length > 50) {
+                    errorLabel.innerHTML = ("Email is too long.");
+                    return;
+                }
+                if (passIn.length > 50) {
+                    errorLabel.innerHTML = ("Password is too long.");
+                    return;
+                }
+                errorLabel.innerHTML = ("");
+                process_signup();
             }
-            if (lastNameIn.value.length > 50)
-            {
-                console.log("Last name is too long.");
-                return;
-            }
-            if (emailIn.value.length > 50)
-            {
-                console.log("Email is too long.");
-                return;
-            }
-            if (passIn.value.length > 50)
-            {
-                console.log("Password is too long.");
-                return;
-            }
-            process_signup();
-        }
-    </script>
+        </script>
 </body>
 
 </html>
