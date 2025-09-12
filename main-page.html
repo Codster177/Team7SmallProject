@@ -29,8 +29,13 @@
       </div>
     </div>
     <!-- Logout button -->
-    <button id="logout-btn" class="btn btn-ghost">Logout</button>
+    <button id="logout-btn" class="btn btn-ghost" onclick="returnToLogin()">Logout</button>
   </header>
+  <script>
+    function returnToLogin() {
+      window.location.href = "login.html";
+    }
+  </script>
 
   <!-- Main content card -->
   <main class="card">
