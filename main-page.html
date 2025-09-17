@@ -13,6 +13,7 @@
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {
       onMainpageLoad();
+      showContacts()
     })
   </script>
 
@@ -53,10 +54,9 @@
           <span class="input-label">Search</span>
           <input id="search" placeholder="Search name, email, or phone…">
         </div>
-        <!-- Search and Clear buttons -->
+        <!-- Search buttons -->
         <div class="button-group">
-          <button id="search-btn" class="btn" onclick="searchContact()">Search</button>
-          <button id="refresh-btn" class="btn btn-ghost" onclick="clearContact()">Clear</button>
+          <button id="search-btn" class="btn" onclick="searchContact()">Search</button>        
         </div>
       </div>
     </div>
@@ -102,16 +102,10 @@
               <th style="width:160px">Actions</th>
             </tr>
           </thead>
-          <tbody>
-            <!-- Table rows will be dynamically populated by app.js -->
+          <tbody id="table-body">
+            <!-- Table rows will be dynamically populated by mainpage.js -->
           </tbody>
         </table>
-        <!-- Empty state message -->
-        <div id="empty-state" class="empty hidden">
-          <div class="empty-icon">🗒️</div>
-          <div class="empty-title">No contacts yet</div>
-          <div class="empty-desc">Use the form above to add your first contact.</div>
-        </div>
       </div>
     </div>
   </main>
