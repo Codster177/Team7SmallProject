@@ -39,15 +39,12 @@ function process_signup() {
                 let firstNameCookie = jsonObject.firstName;
                 let lastNameCookie = jsonObject.lastName;
 
-                console.log(firstNameCookie);
-                console.log(lastNameCookie);
-
                 Global.saveCookie(firstNameCookie, lastNameCookie, userId);
+                window.location.href = "main-page.html";
             }
         };
 
         xhr.send(jsonPayload);
-        // window.location.href = "main-page.html";
 
     } catch (err) {
         errorDatabase.innerHTML = err.message;
