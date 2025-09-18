@@ -36,8 +36,10 @@ function process_signup() {
             if (this.status == 200) {
                 let jsonObject = JSON.parse(xhr.responseText);
                 userId = jsonObject.id;
+                let firstNameCookie = jsonObject.firstName;
+                let lastNameCookie = jsonObject.lastName;
 
-                Global.saveCookie(firstName, lastName, userId);
+                Global.saveCookie(firstNameCookie, lastNameCookie, userId);
             }
         };
 
