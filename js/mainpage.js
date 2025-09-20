@@ -36,8 +36,8 @@ function addContact(){
     // create JSON payload
     let tmp = {
         userId: userId,
-        firstName: firsname,
-        lastName: lastname,
+        firstname: firsname,
+        lastname: lastname,
         email: email,
         phone: phone
     };
