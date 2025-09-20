@@ -6,7 +6,7 @@
 	$searchCount = 0;
 
 	require_once __DIR__ . '/config.php';
-	$conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);;
+	$conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
@@ -14,15 +14,16 @@
 	else
 	{
 		// Select all contact information that is connected to the passed in UserID
-		$stmt = $conn->prepare("select FirstName, LastName, Phone, Email, UserID, ID, CreatedAt from Contacts where UserID=?
-		ORDER BY LastName
-		 
+		$stmt = $conn->prepare("select FirstName, LastName, Phone, Email, UserID, ID, CreatedAt from Contacts where LastName like ? and UserID=?
+		 ORDER BY LastName
 		"); // LIMIT the number of contacts retrieved by the passed in limit from JSON
 		
 		// Need to make it so it grabs based on letters of contacts since ID will be shuffled since it is sorted by firstname
 		
+		$contactName = "%" . $inData["search"] . "%";
+		
 		// Bind the passed in UserID to the command
-		$stmt->bind_param("s", $inData["userId"]);
+		$stmt->bind_param("ss", $contactName, $inData["userId"]);
 		$stmt->execute(); // Execute the command
 		
 		$result = $stmt->get_result();
