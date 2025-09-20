@@ -99,6 +99,7 @@ function showContacts(){
                 }
 
                 // Build table
+                document.getElementById("table-body").innerHTML = "";
                 let contacts = jsonObject.results[0];
                 ids = [];
                 let text = "";
@@ -116,8 +117,8 @@ function showContacts(){
                         text += "<td>" +
                             "<input type='button' value='Edit' onclick='editContact(" + i + ")'/>" +
                             "<input type='button' value='Save' onclick='saveContact(" + i + ")' style='display:none;'/>" +
-                            "<input type='button' value='Delete' onclick='deleteContact(" + contact.ContactId + ")'/>" +
-                            "</td>";
+                            "<input type='button' value='Delete' onclick='deleteContact(" + contact.ContactId + "," + i + ")'/>"
+                            + "</td>";
                         text += "</tr>";
                     }
                 }
@@ -197,26 +198,22 @@ function saveContact(index){
     }
 }
 
-function deleteContact(contactId){
+function deleteContact(contactId, index){
     // get contact name for confirmation dialog
-    var namef_val = document.getElementById("first_Name" + no).innerText;
-    var namel_val = document.getElementById("last_Name" + no).innerText;
-    nameOne = namef_val.substring(0, namef_val.length);
-    nameTwo = namel_val.substring(0, namel_val.length);
+    let namef_val = document.getElementById("first_Name" + index).innerText;
+    let namel_val = document.getElementById("last_Name" + index).innerText;
+    let nameOne = namef_val.trim();
+    let nameTwo = namel_val.trim();
 
     // confirmation dialog
     let confirmation = confirm("Are you sure you want to delete " + nameOne + " " + nameTwo + "?");
-    if (!confirmation){
-        return;
-    }
-    
+    if (!confirmation) return;
+
     // create JSON payload
-    let tmp = {
-        contactId: contactId
-    };
-    // send to server
+    let tmp = { contactId: contactId };
     let jsonPayload = JSON.stringify(tmp);
     let url = Global.URL + '/DeleteContact' + Global.apiExtension;
+
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
