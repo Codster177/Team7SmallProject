@@ -8,9 +8,9 @@ let lastName = "";
 
 function onMainpageLoad() {
     let userInfo = Global.readCookie();
-    let firstName = userInfo.firstname;
-    let lastName = userInfo.lastname;
-    let userId = userInfo.userid;
+    firstName = userInfo.firstname;
+    lastName = userInfo.lastname;
+    userId = userInfo.userid;
 
     if (userId < 1) {
         window.location.href = "index.html";
