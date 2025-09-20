@@ -99,12 +99,13 @@ function showContacts(){
                 }
                 // build table
                 let text = "<table border='1'>"
+                ids = [];
                 for (let i = 0; i < jsonObject.results.length; i++) {
-                    ids[i] = jsonObject.results[i].ID
+                    ids[i] = jsonObject.results[i].ContactId
                     text += "<tr id='row" + i + "'>"
                     text += "<td id='first_Name" + i + "'><span>" + jsonObject.results[i].FirstName + "</span></td>";
                     text += "<td id='last_Name" + i + "'><span>" + jsonObject.results[i].LastName + "</span></td>";
-                    text += "<td id='email" + i + "'><span>" + jsonObject.results[i].EmailAddress + "</span></td>";
+                    text += "<td id='email" + i + "'><span>" + jsonObject.results[i].Email + "</span></td>";
                     text += "<td id='phone" + i + "'><span>" + jsonObject.results[i].PhoneNumber + "</span></td>";
                     text += "<td>" +
                         "<input type='button' value='Edit' onclick='editContact(" + i + ")'/>" +
@@ -113,6 +114,7 @@ function showContacts(){
                         "</td>";
                     text += "<tr/>"
                 }
+                console.log(text);
                 text += "</table>"
                 document.getElementById("table-body").innerHTML = text;
             }
