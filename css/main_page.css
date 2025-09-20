@@ -250,7 +250,6 @@ td .btn+.btn {
   }
 }
 
-
 .welcome-group {
   display: flex;
   margin-left: auto;
@@ -262,8 +261,4 @@ td .btn+.btn {
 .welcome-label {
   font-size: 22px;
   color: #000000;
-}
-
-.empty-state.hidden {
-  display: none;
 }

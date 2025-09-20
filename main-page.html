@@ -108,25 +108,11 @@
             <!-- Table rows will be dynamically populated by mainpage.js -->
           </tbody>
         </table>
-        <!-- Empty state message -->
-        <div id="empty-state" class="empty-state hidden">
-            <p>No contacts added yet.</p>
-        </div>
       </div>
     </div>
   </main>
   <script>
-    // Show or hide the empty state automatically when the table is empty
-    const tbody = document.querySelector('#table tbody');
-    const empty = document.querySelector('#empty-state');
-    const observer = new MutationObserver(() => {
-      // Check if the table has rows
-      const hasRows = tbody.querySelectorAll('tr').length > 1;
-      // Toggle the hidden class on the empty state
-      empty.classList.toggle('hidden', hasRows);
-    });
-    // Observe changes to the table body
-    observer.observe(tbody, { childList: true });
+
   </script>
 </body>
 
