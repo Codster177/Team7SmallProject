@@ -11,15 +11,16 @@
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/global.js"></script>
     <script type="text/javascript" src="js/md5.js"></script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 
 <body>
     <header class="bar">
         <div class="brand">
             <!-- Logo and title -->
-            <div class="logo">📇</div>
+            <div class="logo"><span onclick="window.location.href='index.html'" style="cursor: pointer;">📇</span></div>
             <div class="titles">
-                <strong>Contact Manager</strong>
+                <strong><span onclick="window.location.href='index.html'" style="cursor: pointer;">Contact Manager</span></strong>
             </div>
         </div>
     </header>
@@ -64,7 +65,7 @@
                 }
 
                 if (emailIn.length > 50) {
-                    errorLabel.innerHTML = ("Email is too long.");
+                    errorLabel.innerHTML = ("Username is too long.");
                     return;
                 }
                 if (passIn.length > 50) {

@@ -12,6 +12,11 @@ function onMainpageLoad() {
     let lastName = userInfo.lastname;
     let userId = userInfo.userid;
 
+    if (userId < 1) {
+        window.location.href = "index.html";
+        return;
+    }
+
     let welcomeLabel = document.getElementById("welcomeLabel");
     welcomeLabel.innerHTML = "Welcome " + firstName + " " + lastName;
 

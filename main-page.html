@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/main_page.css" />
   <script type="text/javascript" src="js/mainpage.js"></script>
   <script type="text/javascript" src="js/global.js"></script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {
@@ -23,11 +24,11 @@
   <!-- Top bar -->
   <header class="bar">
     <div class="brand">
-      <!-- Logo and title -->
-      <div class="logo">📇</div>
-      <div class="titles">
-        <strong>Contact Manager</strong>
-      </div>
+        <!-- Logo and title -->
+        <div class="logo"><span onclick="window.location.href='index.html'" style="cursor: pointer;">📇</span></div>
+        <div class="titles">
+            <strong><span onclick="window.location.href='index.html'" style="cursor: pointer;">Contact Manager</span></strong>
+        </div>
     </div>
     <!-- Logout button -->
     <button id="logout-btn" class="btn btn-ghost" onclick="returnToLogin()">Logout</button>
@@ -51,7 +52,7 @@
       <div class="row stack-mobile">
         <!-- Search input -->
         <div class="input-group grow">
-          <span class="input-label">Search</span>
+          <span class="input-label"><h2 class = "section-title">Search</h2></span>
           <input id="search" placeholder="Search name, email, or phone…">
         </div>
         <!-- Search buttons -->
