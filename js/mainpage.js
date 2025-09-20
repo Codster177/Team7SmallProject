@@ -97,25 +97,30 @@ function showContacts(){
                     console.log(jsonObject.error);
                     return;
                 }
-                // build table
-                let text = "<table border='1'>"
+
+                // Build table
+                let contacts = jsonObject.results[0];
                 ids = [];
-                for (let i = 0; i < jsonObject.results.length; i++) {
-                    ids[i] = jsonObject.results[i].ContactId
-                    text += "<tr id='row" + i + "'>"
-                    text += "<td id='first_Name" + i + "'><span>" + jsonObject.results[i].FirstName + "</span></td>";
-                    text += "<td id='last_Name" + i + "'><span>" + jsonObject.results[i].LastName + "</span></td>";
-                    text += "<td id='email" + i + "'><span>" + jsonObject.results[i].Email + "</span></td>";
-                    text += "<td id='phone" + i + "'><span>" + jsonObject.results[i].PhoneNumber + "</span></td>";
-                    text += "<td>" +
-                        "<input type='button' value='Edit' onclick='editContact(" + i + ")'/>" +
-                        "<input type='button' value='Save' onclick='saveContact(" + i + ")' style='display:none;'/>" +
-                        "<input type='button' value='Delete' onclick='deleteContact(" + jsonObject.results[i].ID + ")'/>" +
-                        "</td>";
-                    text += "<tr/>"
+                let text = "";
+                for (let key in contacts) {
+                    if (contacts.hasOwnProperty(key)) {
+                        let contact = contacts[key];
+                        let i = ids.length;
+                        ids.push(contact.ContactId);
+
+                        text += "<tr id='row" + i + "'>";
+                        text += "<td id='first_Name" + i + "'><span>" + contact.FirstName + "</span></td>";
+                        text += "<td id='last_Name" + i + "'><span>" + contact.LastName + "</span></td>";
+                        text += "<td id='email" + i + "'><span>" + contact.Email + "</span></td>";
+                        text += "<td id='phone" + i + "'><span>" + contact.PhoneNumber + "</span></td>";
+                        text += "<td>" +
+                            "<input type='button' value='Edit' onclick='editContact(" + i + ")'/>" +
+                            "<input type='button' value='Save' onclick='saveContact(" + i + ")' style='display:none;'/>" +
+                            "<input type='button' value='Delete' onclick='deleteContact(" + contact.ContactId + ")'/>" +
+                            "</td>";
+                        text += "</tr>";
+                    }
                 }
-                console.log(text);
-                text += "</table>"
                 document.getElementById("table-body").innerHTML = text;
             }
         };
