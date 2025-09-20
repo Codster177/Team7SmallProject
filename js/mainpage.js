@@ -210,7 +210,7 @@ function deleteContact(contactId, index){
     if (!confirmation) return;
 
     // create JSON payload
-    let tmp = { contactId: contactId };
+    let tmp = { contactId: contactId, userId: userId };
     let jsonPayload = JSON.stringify(tmp);
     let url = Global.URL + '/DeleteContact' + Global.apiExtension;
 
