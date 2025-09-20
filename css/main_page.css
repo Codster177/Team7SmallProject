@@ -263,3 +263,7 @@ td .btn+.btn {
   font-size: 22px;
   color: #000000;
 }
+
+.empty-state.hidden {
+  display: none;
+}
