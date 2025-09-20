@@ -276,3 +276,8 @@ function validInput(firstname, lastname, email, phone){
     }
     return true;
 }
+
+function clearSearch() {
+    document.getElementById("search").value = "";
+    showContacts();
+}
