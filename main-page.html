@@ -121,7 +121,7 @@
     const empty = document.querySelector('#empty-state');
     const observer = new MutationObserver(() => {
       // Check if the table has rows
-      const hasRows = tbody.querySelector('tr') !== null;
+      const hasRows = tbody.querySelectorAll('tr').length > 1;
       // Toggle the hidden class on the empty state
       empty.classList.toggle('hidden', hasRows);
     });
