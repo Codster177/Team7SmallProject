@@ -20,7 +20,7 @@
 		
 		// Need to make it so it grabs based on letters of contacts since ID will be shuffled since it is sorted by firstname
 		
-		$contactInfo = "%" . $inData["search"] . "%";
+		$contactInfo = "%" . $inData["searchString"] . "%";
 		
 		// Bind the passed in UserID to the command
 		$stmt->bind_param("sssss", $contactInfo, $contactInfo, $contactInfo, $contactInfo, $inData["userId"]);
