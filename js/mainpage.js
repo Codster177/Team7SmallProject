@@ -77,7 +77,7 @@ function addContact(){
 
 function showContacts(){
     let tmp = {
-        search: "",
+        searchString: "",
         userId: userId
     };
 
