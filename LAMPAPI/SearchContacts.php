@@ -14,16 +14,16 @@
 	else
 	{
 		// Select all contact information that is connected to the passed in UserID
-		$stmt = $conn->prepare("select FirstName, LastName, Phone, Email, UserID, ID, CreatedAt from Contacts where LastName like ? and UserID=?
+		$stmt = $conn->prepare("select FirstName, LastName, Phone, Email, UserID, ID, CreatedAt from Contacts where (FirstName like ? OR LastName like ? OR Email like ? OR Phone like ?) and UserID=?
 		 ORDER BY LastName
 		"); // LIMIT the number of contacts retrieved by the passed in limit from JSON
 		
 		// Need to make it so it grabs based on letters of contacts since ID will be shuffled since it is sorted by firstname
 		
-		$contactName = "%" . $inData["search"] . "%";
+		$contactInfo = "%" . $inData["search"] . "%";
 		
 		// Bind the passed in UserID to the command
-		$stmt->bind_param("ss", $contactName, $inData["userId"]);
+		$stmt->bind_param("sssss", $contactInfo, $contactInfo, $contactInfo, $contactInfo, $inData["userId"]);
 		$stmt->execute(); // Execute the command
 		
 		$result = $stmt->get_result();
