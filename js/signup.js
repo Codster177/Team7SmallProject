@@ -35,6 +35,12 @@ function process_signup() {
 
             if (this.status == 200) {
                 let jsonObject = JSON.parse(xhr.responseText);
+
+                if (jsonObject.error == "Username already exists") {
+                    errorDatabase.innerHTML = "Username already exists";
+                    return;
+                }
+
                 userId = jsonObject.id;
                 let firstNameCookie = jsonObject.firstName;
                 let lastNameCookie = jsonObject.lastName;

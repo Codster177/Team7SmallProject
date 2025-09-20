@@ -65,7 +65,7 @@
 			}
 			else
 			{
-				returnWithError("Username already exits");
+				returnWithError("Username already exists");
 			}
 		}
 		
