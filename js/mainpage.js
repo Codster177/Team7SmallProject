@@ -100,6 +100,12 @@ function showContacts(){
 
                 // Build table
                 document.getElementById("table-body").innerHTML = "";
+                // Check if results exist and are non-empty
+                if (!jsonObject.results || jsonObject.results.length === 0 || jsonObject.results[0].length === 0) {
+                    document.getElementById("table-body").innerHTML =
+                        "<tr><td colspan='5' style='text-align:center;'>No contacts found</td></tr>";
+                    return;
+                }
                 let contacts = jsonObject.results[0];
                 ids = [];
                 let text = "";
