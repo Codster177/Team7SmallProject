@@ -208,7 +208,7 @@ function deleteContact(contactId, index){
     let nameTwo = namel_val.trim();
 
     // confirmation dialog
-    let confirmation = confirm("Are you sure you want to delete " + nameOne + " " + nameTwo + "?");
+    let confirmation = confirm("Are you sure you want to delete contact " + nameOne + " " + nameTwo + "?");
     if (!confirmation) return;
 
     // create JSON payload
@@ -229,6 +229,7 @@ function deleteContact(contactId, index){
                     return;
                 }
                 showContacts();
+                alert("Contact " + nameOne + " " + nameTwo + " has been deleted.");
             }
         };
         xhr.send(jsonPayload);
