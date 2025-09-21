@@ -170,6 +170,7 @@ function saveContact(index){
     // create JSON payload
     let tmp = {
         contactId: ids[index],
+        userId: userId,
         firstName: firstName,
         lastName: lastName,
         email: email,
@@ -177,7 +178,7 @@ function saveContact(index){
     };
     // send to server
     let jsonPayload = JSON.stringify(tmp);
-    let url = Global.URL + '/UpdateContact' + Global.apiExtension;
+    let url = Global.URL + '/EditContact' + Global.apiExtension;
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
