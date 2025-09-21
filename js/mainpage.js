@@ -171,8 +171,8 @@ function saveContact(index){
     let tmp = {
         contactId: ids[index],
         userId: userId,
-        firstName: firstName,
-        lastName: lastName,
+        firstname: firstName,
+        lastname: lastName,
         email: email,
         phone: phone
     };
