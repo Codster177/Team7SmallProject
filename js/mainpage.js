@@ -149,9 +149,10 @@ function editContact(index){
     emailTd.innerHTML = "<input type='text' id='emailInput" + index + "' value='" + email + "'/>";
     phoneTd.innerHTML = "<input type='text' id='phoneInput" + index + "' value='" + phone + "'/>";
     // toggle buttons
-    let buttons = row.getElementsByTagName("input");
-    buttons[0].style.display = "none"; // Hide Edit button
-    buttons[1].style.display = ""; // Show Save button
+    let actionTd = row.lastElementChild;
+    let actionButtons = actionTd.getElementsByTagName("input");
+    actionButtons[0].style.display = "none"; // Hide Edit button
+    actionButtons[1].style.display = ""; // Show Save button
 }
 
 function saveContact(index){
