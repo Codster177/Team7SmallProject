@@ -5,15 +5,14 @@
 <head>
     <!-- Metadata and external styles -->
     <meta charset="utf-8" />
-    <meta name="description" content="Sign up page for the contacts manager.">
-    <title>Sign Up - Contact Manager</title>
+    <meta name="description" content="Login page for the contacts manager.">
+    <title>Log In - Contact Manager</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/login.css" />
-    <script type="text/javascript" src="js/signup.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/global.js"></script>
     <script type="text/javascript" src="js/md5.js"></script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
 </head>
 
 <body>
@@ -30,73 +29,43 @@
     <main class="card">
         <!-- Tools row for search functionality -->
         <div class="section">
-            <h2 class="section-title">Sign Up</h2>
-            <div class="row stack-mobile">
-                <div class="input-group grow">
-                    <span class="input-label">First Name</span>
-                    <input id="signup-fn" placeholder="First Name">
-                </div>
-                <div class="input-group grow">
-                    <span class="input-label">Last Name</span>
-                    <input id="signup-ln" placeholder="Last Name">
-                </div>
-            </div>
+            <h2 class="section-title">Login</h2>
             <div class="input-group grow">
                 <span class="input-label">Username</span>
-                <input id="signup-user" placeholder="Username">
+                <input id="login-user" placeholder="Username">
             </div>
             <div class="input-group grow">
                 <span class="input-label">Password</span>
-                <input id="signup-pass" type="password" placeholder="Password">
-            </div>
-            <div class="input-group grow">
-                <span class="input-label">Confirm Password</span>
-                <input id="signup-passcon" type="password" placeholder="Confirm Password">
+                <input id="login-pass" type="password" placeholder="Password">
             </div>
             <div>
                 <div class="error-group">
-                    <span class="error-label" id="signup-error"></span>
+                    <span class="error-label" id="login-error"></span>
                 </div>
             </div>
             <div class="row stack-mobile">
                 <div class="button-group-right">
-                    <button id="signup-btn" onclick="signup_precheck()" class="btn">Sign Up</button>
+                    <button id="signin-btn" onclick="login_precheck()" class="btn">Sign In</button>
                 </div>
                 <div class="row stack-mobile">
-                    <div class="link-label">Already have an account?</div>
-                    <a class="link" href="login.html">Log In</a>
+                    <div class="link-label">Don't have an account?</div>
+                    <a class="link" href="signup.html">Sign Up</a>
                 </div>
             </div>
         </div>
         <script>
-            function signup_precheck() {
-                let firstNameIn = document.getElementById("signup-fn").value;
-                let lastNameIn = document.getElementById("signup-ln").value;
-                let userIn = document.getElementById("signup-user").value;
-                let passIn = document.getElementById("signup-pass").value;
-                let passConIn = document.getElementById("signup-passcon").value;
+            function login_precheck() {
+                let emailIn = document.getElementById("login-user").value;
+                let passIn = document.getElementById("login-pass").value;
 
-                let errorLabel = document.getElementById("signup-error");
+                let errorLabel = document.getElementById("login-error");
 
-                if (firstNameIn == "" || lastNameIn == "" || userIn == "" || passIn == "" || passConIn == "") {
+                if (emailIn == "" || passIn == "") {
                     errorLabel.innerHTML = ("Please fill in all fields.");
                     return;
                 }
 
-                if (passIn != passConIn) {
-                    errorLabel.innerHTML = ("Passwords Don't Match.");
-                    return;
-                }
-
-                if (firstNameIn.length > 50) {
-                    errorLabel.innerHTML = ("First name is too long.");
-                    return;
-                }
-                if (lastNameIn.length > 50) {
-                    errorLabel.innerHTML = ("Last name is too long.");
-                    return;
-                }
-                if (userIn.length > 50) {
+                if (emailIn.length > 50) {
                     errorLabel.innerHTML = ("Username is too long.");
                     return;
                 }
@@ -105,34 +74,9 @@
                     return;
                 }
                 errorLabel.innerHTML = ("");
-                process_signup();
+                process_login();
             }
         </script>
 </body>
 
 </html>
-
-<!-- Phone Input Code -->
-<!-- <div class="input-group grow">
-                <span class="input-label">Phone Number</span>
-                <input id="signup-phonenum" placeholder="Phone Number">
-            </div>
-            <script>
-                const phoneInput = document.getElementById("signup-phonenum");
-
-                function phoneInputFunc() {
-                    let digits = phoneInput.value.replace(/\D/g, "");
-                    if (digits.length > 10) digits = digits.slice(0, 10);
-
-                    let formatted = digits;
-                    if (digits.length > 6) {
-                        formatted = `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`;
-                    } else if (digits.length > 3) {
-                        formatted = `${digits.slice(0, 3)}-${digits.slice(3)}`;
-                    }
-
-                    phoneInput.value = formatted;
-
-                }
-                phoneInput.addEventListener("input", phoneInputFunc);
-            </script> -->
