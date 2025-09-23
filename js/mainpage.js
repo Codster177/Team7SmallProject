@@ -250,7 +250,7 @@ function searchContacts() {
     const table = document.getElementById("table-body");
     const rows = table.getElementsByTagName("tr");
     // Loop through all table rows and hide those that don't match the search query
-    const numMatches = 0;
+    let numMatches = 0;
     for (let i = 0; i < rows.length; i++) {
         let firstName = rows[i].cells[0].innerText.toUpperCase();
         let lastName = rows[i].cells[1].innerText.toUpperCase();
