@@ -273,38 +273,70 @@ td .btn+.btn {
   height: 100%;
   overflow: hidden;
   outline: 0;
+  background-color: rgba(0,0,0,0.5);
 }
-.modal.show { display: block; }
-.modal.fade .modal-dialog { transition: transform 0.3s ease-out; transform: translateY(-50px); }
-.modal.show .modal-dialog { transform: none; }
+
+.modal.show {
+  display: block;
+}
+
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out;
+  transform: translateY(-50px);
+}
+.modal.show .modal-dialog {
+  transform: none;
+}
 
 .modal-dialog {
   position: relative;
   margin: 1.75rem auto;
   max-width: 500px;
+  pointer-events: none;
 }
+
 .modal-content {
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
   background-color: #fff;
+  background-clip: padding-box;
   border: 1px solid rgba(0,0,0,.2);
   border-radius: 0.3rem;
   outline: 0;
 }
+
 .modal-header, .modal-body, .modal-footer {
   padding: 1rem;
 }
+
 .modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #dee2e6;
 }
+
 .modal-footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   border-top: 1px solid #dee2e6;
   gap: 0.5rem;
+}
+
+.btn-close {
+  box-sizing: content-box;
+  width: 1em;
+  height: 1em;
+  padding: 0.25em;
+  background: transparent url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23000' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L18 6M6 6l12 12'/></svg>") center/1em auto no-repeat;
+  border: 0;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.btn-close:hover {
+  opacity: 0.75;
 }
