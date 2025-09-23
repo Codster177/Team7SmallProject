@@ -96,6 +96,10 @@ body {
   gap: 8px;
 }
 
+#open-add-modal {
+    margin-left: auto;
+}
+
 /* Layout */
 .card {
   max-width: 1040px;
