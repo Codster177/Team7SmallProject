@@ -250,7 +250,6 @@ function searchContacts() {
     const table = document.getElementById("table-body");
     const rows = table.getElementsByTagName("tr");
     // Loop through all table rows and hide those that don't match the search query
-    let numMatches = 0;
     for (let i = 0; i < rows.length; i++) {
         let firstName = rows[i].cells[0].innerText.toUpperCase();
         let lastName = rows[i].cells[1].innerText.toUpperCase();
@@ -262,14 +261,7 @@ function searchContacts() {
             email.includes(selection) ||
             phone.includes(selection)
         );
-        if (rowMatches) {
-            numMatches++;
-        }
         rows[i].style.display = rowMatches ? "" : "none";
-    }
-    if (numMatches === 0) {
-        document.getElementById("table-body").innerHTML =
-                        "<tr><td colspan='5' style='text-align:center;'>No contacts found</td></tr>";
     }
 }
 
