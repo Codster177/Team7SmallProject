@@ -262,3 +262,49 @@ td .btn+.btn {
   font-size: 22px;
   color: #000000;
 }
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 1050;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+}
+.modal.show { display: block; }
+.modal.fade .modal-dialog { transition: transform 0.3s ease-out; transform: translateY(-50px); }
+.modal.show .modal-dialog { transform: none; }
+
+.modal-dialog {
+  position: relative;
+  margin: 1.75rem auto;
+  max-width: 500px;
+}
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+.modal-header, .modal-body, .modal-footer {
+  padding: 1rem;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dee2e6;
+}
+.modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+  gap: 0.5rem;
+}
