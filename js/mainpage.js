@@ -23,10 +23,10 @@ function onMainpageLoad() {
 }
 
 function addContact(){
-    let firsname = document.getElementById("firstname").value;
-    let lastname = document.getElementById("lastname").value;
-    let email = document.getElementById("email").value;
-    let phone = document.getElementById("phone").value;
+    let firsname = document.getElementById("firstname").value.trim();
+    let lastname = document.getElementById("lastname").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
 
     // validate input
     if (!validInput(firsname, lastname, email, phone)){
