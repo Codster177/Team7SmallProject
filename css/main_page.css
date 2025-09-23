@@ -172,16 +172,16 @@ input:focus {
 
 th,
 td {
-  padding: 12px;
-  border-bottom: 1px solid var(--line);
-  vertical-align: middle;
+  padding: 12px !important;
+  border-bottom: 1px solid var(--line) !important;
+  vertical-align: middle !important;
 }
 
 th {
-  background: #fafafa;
-  text-align: left;
-  font-weight: 700;
-  font-size: 14px;
+  background: #fafafa !important;
+  text-align: left !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
 }
 
 td input {
