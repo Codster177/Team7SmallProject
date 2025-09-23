@@ -166,12 +166,12 @@ input:focus {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 12px;
-  overflow: hidden;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 0rem;
 }
 
 th,
