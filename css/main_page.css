@@ -206,6 +206,7 @@ td input {
   border: 1px dashed #d1d5db;
   border-radius: 8px;
   padding: 8px 10px;
+  margin: 1px;
 }
 
 td .btn {
