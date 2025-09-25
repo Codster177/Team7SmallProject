@@ -7,6 +7,8 @@
   --primary: #2563eb;
   --primary-ink: #ffffff;
   --ghost: #eef2ff;
+  --alert: #ff0000;
+  --success: #00ff5e;
   --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
   --radius: 14px;
 }
@@ -98,6 +100,18 @@ body {
 
 #open-add-modal {
     margin-left: auto;
+}
+
+.edit-button {
+    border-color: var(--primary) !important;
+}
+
+.delete-button {
+    border-color: var(--alert) !important;
+}
+
+.save-button {
+    border-color: var(--success) !important;
 }
 
 /* Layout */

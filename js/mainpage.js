@@ -130,9 +130,9 @@ function showContacts(searchStringInput = "") {
                         text += "<td id='email" + i + "'><span>" + contact.Email + "</span></td>";
                         text += "<td id='phone" + i + "'><span>" + contact.PhoneNumber + "</span></td>";
                         text += "<td>" +
-                            "<input type='button' value='Edit ✏️' onclick='editContact(" + i + ")'/>" +
-                            "<input type='button' value='Save 💾' onclick='saveContact(" + i + ")' style='display:none;'/>" +
-                            "<input type='button' value='Delete 🗑️' onclick='deleteContact(" + contact.ContactId + "," + i + ")'/>" +
+                            "<input type='button' class='edit-button' value='Edit ✏️' onclick='editContact(" + i + ")'/>" +
+                            "<input type='button' class='save-button' value='Save 💾' onclick='saveContact(" + i + ")' style='display:none;'/>" +
+                            "<input type='button' class='delete-button' value='Delete 🗑️' onclick='deleteContact(" + contact.ContactId + "," + i + ")'/>" +
                             "<input type='button' value='Cancel ✖️' onclick='clearSearch()' style='display:none;'/>"
                             + "</td>";
                         text += "</tr>";
