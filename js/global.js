@@ -3,7 +3,7 @@ class Global {
     static apiExtension = ".php";
 
     static saveCookie(firstName, lastName, userId) {
-        let minutes = 20;
+        let minutes = 1440;
         let date = new Date();
         date.setTime(date.getTime() + (minutes * 60 * 1000));
 

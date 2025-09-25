@@ -63,16 +63,16 @@ body {
 
 /* Buttons */
 .btn {
-  appearance: none;
-  border: 0;
-  border-radius: 10px;
-  background: var(--primary);
-  color: var(--primary-ink);
-  padding: 10px 14px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
-  transition: transform .04s ease, opacity .2s;
+  appearance: none !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  background: var(--primary) !important;
+  color: var(--primary-ink) !important;
+  padding: 10px 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25) !important;
+  transition: transform .04s ease, opacity .2s !important;
 }
 
 .btn:active {
@@ -80,15 +80,15 @@ body {
 }
 
 .btn-ghost {
-  background: transparent;
-  color: var(--text);
-  box-shadow: none;
-  border: 1px solid var(--line);
+  background: transparent !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+  border: 1px solid var(--line) !important;
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: #fff;
+  background: var(--primary) !important;
+  color: #fff !important;
 }
 
 .button-group {

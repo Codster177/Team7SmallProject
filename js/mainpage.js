@@ -158,6 +158,7 @@ function editContact(index){
     let actionButtons = actionTd.getElementsByTagName("input");
     actionButtons[0].style.display = "none"; // Hide Edit button
     actionButtons[1].style.display = ""; // Show Save button
+    actionButtons[2].style.display = "none"; // Hide Delete button
 }
 
 function saveContact(index){

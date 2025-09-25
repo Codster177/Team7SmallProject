@@ -43,5 +43,15 @@ function process_login() {
     } catch (err) {
         errorDatabase.innerHTML = err.message;
     }
+}
 
+function check_cookie() {
+    try {
+        let user = Global.readCookie();
+        if (user.userid > 0) {
+            window.location.href = "main-page.html";
+        }
+    } catch (err) {
+        console.log(err.message);
+    }
 }
