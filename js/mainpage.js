@@ -66,7 +66,7 @@ function addContact(){
                 document.getElementById("email").value = "";
                 document.getElementById("phone").value = "";
                 // refresh contact list
-                showContacts();
+                clearSearch();
             }
         };
         xhr.send(jsonPayload);
@@ -196,7 +196,7 @@ function saveContact(index){
                     console.log(jsonObject.error);
                     return;
                 }
-                showContacts();
+                clearSearch();
             }
         };
         xhr.send(jsonPayload);
@@ -233,7 +233,7 @@ function deleteContact(contactId, index){
                     console.log(jsonObject.error);
                     return;
                 }
-                showContacts();
+                clearSearch();
                 alert("Contact " + nameOne + " " + nameTwo + " has been deleted.");
             }
         };
