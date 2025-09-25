@@ -76,14 +76,24 @@ function addContact(){
 }
 
 function showContacts(searchStringInput = "") {
-    let tmp = {
-        searchString: searchStringInput,
-        userId: userId
-    };
+    // Determine which endpoint to use based on the search input
+    let tmp;
+    let endpoint;
+    if (searchStringInput == "") {
+        tmp = { userId: userId };
+        endpoint = '/GetContacts';
+    } else {
+        tmp = {
+                searchString: searchStringInput,
+                userId: userId
+        };
+        endpoint = '/SearchContacts';
+    }
+
 
     // send to server
     let jsonPayload = JSON.stringify(tmp);
-    let url = Global.URL + '/SearchContacts' + Global.apiExtension;
+    let url = Global.URL + endpoint + Global.apiExtension;
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
