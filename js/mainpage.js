@@ -75,9 +75,9 @@ function addContact(){
     }
 }
 
-function showContacts(){
+function showContacts(searchStringInput = "") {
     let tmp = {
-        searchString: "",
+        searchString: searchStringInput,
         userId: userId
     };
 
@@ -95,9 +95,9 @@ function showContacts(){
                 let jsonObject = JSON.parse(xhr.responseText);
                 if (jsonObject.error) {
                     if (jsonObject.error == "No Contacts Found") {
+                        ids = [];
                         document.getElementById("table-body").innerHTML =
                         "<tr><td colspan='5' style='text-align:center;'>No contacts found</td></tr>";
-                        ids = [];
                     }
                     console.log(jsonObject.error);
                     return;
@@ -244,25 +244,9 @@ function deleteContact(contactId, index){
 }
 
 function searchContacts() {
-    // Get the search input and convert to uppercase for case-insensitive comparison
+    // Get the search input and pass it to show contacts method
     const content = document.getElementById("search");
-    const selections = content.value.toUpperCase().split(' ');
-    const table = document.getElementById("table-body");
-    const rows = table.getElementsByTagName("tr");
-    // Loop through all table rows and hide those that don't match the search query
-    for (let i = 0; i < rows.length; i++) {
-        let firstName = rows[i].cells[0].innerText.toUpperCase();
-        let lastName = rows[i].cells[1].innerText.toUpperCase();
-        let email = rows[i].cells[2].innerText.toUpperCase();
-        let phone = rows[i].cells[3].innerText.toUpperCase();
-        let rowMatches = selections.every(selection =>
-            firstName.includes(selection) ||
-            lastName.includes(selection) ||
-            email.includes(selection) ||
-            phone.includes(selection)
-        );
-        rows[i].style.display = rowMatches ? "" : "none";
-    }
+    showContacts(content.value.trim());
 }
 
 function validInput(firstname, lastname, email, phone){
