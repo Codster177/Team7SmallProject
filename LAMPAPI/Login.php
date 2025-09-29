@@ -9,10 +9,12 @@
 
 	
 	require_once __DIR__ . '/config.php';
-	$conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-	if( $conn->connect_error )
+	$conn = mysqli_init();
+    mysqli_ssl_set($conn, $DB_SSL_KEY, $DB_SSL_CERT, $DB_SSL_CA, NULL, NULL);
+    mysqli_options($conn, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
+	if(!mysqli_real_connect($conn, $DB_HOST, $DB_USER, $DB_PASS, $DB_NAME, 3306, NULL, MYSQLI_CLIENT_SSL))
 	{
-		returnWithError( $conn->connect_error );
+		returnWithError("Connection failed: " . mysqli_connect_error());
 	}
 	else
 	{
