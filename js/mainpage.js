@@ -60,13 +60,11 @@ function addContact(){
                     console.log(jsonObject.error);
                     return;
                 }
-                // clear input fields
-                document.getElementById("firstname").value = "";
-                document.getElementById("lastname").value = "";
-                document.getElementById("email").value = "";
-                document.getElementById("phone").value = "";
+                clearAddContactInputs();
                 // refresh contact list
                 clearSearch();
+                let modal = bootstrap.Modal.getInstance(document.getElementById("addContactModal"));
+                modal.hide();
             }
         };
         xhr.send(jsonPayload);
@@ -264,19 +262,19 @@ function searchContacts() {
 
 function validInput(firstname, lastname, email, phone){
     if (firstname.length < 1 || lastname.length < 1 || email.length < 1 || phone.length < 1){
-        alert("All fields are required");
+        document.getElementById("msg").innerText = "All fields are required";
         return false;
     }
     // validate email
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)){
-        alert("Invalid email format");
+        document.getElementById("msg").innerText = "Invalid email format";
         return false;
     }
     // validate phone number
     let phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(phone)){
-        alert("Invalid phone number format. Must be 10 digits.");
+        document.getElementById("msg").innerText = "Invalid phone number format; Must be 10 digits";
         return false;
     }
     return true;
@@ -285,4 +283,13 @@ function validInput(firstname, lastname, email, phone){
 function clearSearch() {
     document.getElementById("search").value = "";
     showContacts();
+}
+
+function clearAddContactInputs() {
+    // clear input fields
+    document.getElementById("firstname").value = "";
+    document.getElementById("lastname").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("msg").innerText = "";
 }
